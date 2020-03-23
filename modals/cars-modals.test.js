@@ -30,3 +30,9 @@ test('It should update given car modals', async () => {
    expect(res.modal).toBe('RX800');
    expect(res.year).toBe('2008');
 });
+
+test('It should remove the given car modal', async () => {
+   const res = await carsModals.remove(1);
+   const removedOne = await db('cars').select();
+   expect(removedOne).toHaveLength(2);
+})
