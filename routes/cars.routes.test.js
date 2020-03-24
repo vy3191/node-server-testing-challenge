@@ -21,7 +21,7 @@ test("add cars to list returns 201 and json object", async () => {
 });
 
 test("delete a car from the DB", async () => {
-  const res = await request(server).delete("/cars/1")
+  const res = await request(server).remove("/cars/1")
   const cars = await db("cars").find();
   expect(cars.length).toBe(2)
 })
